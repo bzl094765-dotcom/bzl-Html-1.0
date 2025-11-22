@@ -3,40 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++学习资源</title>
-    <style>
-        .table-container {
-            width: 60%;
-            margin: 20px auto;
-            max-height: 400px; /* 限制表格容器的最大高度 */
-            overflow: auto; /* 允许滚动 */
-            border: 1px solid #ddd;
-            border-radius: 6px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-        tr:hover {
-            background-color: #f9f9f9;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-    </style>
-    <title>学习资源导航</title>
+    <title>程序资源导航</title>
     <style>
         * {
             margin: 0;
@@ -71,6 +38,74 @@
             color: #666;
             font-size: 1.1rem;
             font-weight: normal;
+        }
+
+        .container {
+            margin-bottom: 3rem;
+        }
+
+        .table-container {
+            width: 100%; /* 增大表格宽度 */
+            margin: 20px auto;
+            max-height: 400px;
+            overflow: auto;
+            border-radius: 10px; /* 与卡片统一圆角 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* 添加卡片阴影效果 */
+            background: white; /* 白色背景 */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0; /* 移除默认margin */
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee; /* 底部边框更柔和 */
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+            position: sticky;
+            top: 0; /* 表头固定 */
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* 调整列宽 */
+        th:nth-child(1), td:nth-child(1) { /* 序号列 */
+            width: 60px; /* 刚好容纳"序号"两个字 */
+            min-width: 60px;
+        }
+
+        th:nth-child(2), td:nth-child(2) { /* 网站名称列 */
+            width: 20%;
+        }
+
+        th:nth-child(3), td:nth-child(3) { /* 网址列 */
+            width: 30%; /* 适当减小宽度 */
+        }
+
+        th:nth-child(4), td:nth-child(4) { /* 备注列 */
+            width: auto; /* 自动占据剩余宽度 */
+        }
+
+        /* 链接样式统一 */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
         }
 
         .resource-container {
@@ -140,13 +175,19 @@
             h1 {
                 font-size: 1.8rem;
             }
+
+            /* 响应式调整表格 */
+            .table-container {
+                width: 100%;
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>学习资源导航</h1>
-        <p class="subtitle">精选优质学习网站，助力你的学习之路</p>
+        <h1>资源导航</h1>
+        <p class="subtitle">···这是一些表格···这是一些表格···</p>
     </header>
 
     <div class="container">
@@ -174,14 +215,6 @@
                         <td><a href="https://www.doubao.com/thread/wd340f997b31db2db" target="_blank">https://www.doubao.com/thread/wd340f997b31db2db</a></td>
                         <td>豆包解释return 1的含义</td>
                     </tr>
-                    <!-- 可在此处添加内容，示例：
-                    <tr>
-                        <td>1</td>
-                        <td>示例网站</td>
-                        <td><a href="https://example.com" target="_blank">https://example.com</a></td>
-                        <td>学习资料</td>
-                    </tr>
-                    -->
                 </tbody>
             </table>
         </div>
@@ -200,14 +233,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 可在此处添加内容，示例：
-                    <tr>
-                        <td>1</td>
-                        <td>示例网站</td>
-                        <td><a href="https://example.com" target="_blank">https://example.com</a></td>
-                        <td>学习资料</td>
-                    </tr>
-                    -->
+                    <!-- 可在此处添加内容 -->
                 </tbody>
             </table>
         </div>
@@ -226,14 +252,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 可在此处添加内容，示例：
-                    <tr>
-                        <td>1</td>
-                        <td>示例网站</td>
-                        <td><a href="https://example.com" target="_blank">https://example.com</a></td>
-                        <td>学习资料</td>
-                    </tr>
-                    -->
+                    <!-- 可在此处添加内容 -->
                 </tbody>
             </table>
         </div>
