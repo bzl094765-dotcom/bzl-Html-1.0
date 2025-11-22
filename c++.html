@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++学习资源</title>
+    <style>
+        .table-container {
+            width: 60%;
+            margin: 20px auto;
+            max-height: 400px; /* 限制表格容器的最大高度 */
+            overflow: auto; /* 允许滚动 */
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+    <title>学习资源导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: normal;
+        }
+
+        .resource-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .resource-category {
+            color: #3498db;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .resource-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        .resource-description {
+            color: #666;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid #3498db;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: #2980b9;
+            border-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .resource-container {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>学习资源导航</h1>
+        <p class="subtitle">精选优质学习网站，助力你的学习之路</p>
+    </header>
+
+    <div class="container">
+        <h1>c++知识网址</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>doubao_sort</td>
+                        <td><a href="https://www.doubao.com/thread/w2f97c03fbe41cd30" target="_blank">https://www.doubao.com/thread/w2f97c03fbe41cd30</a></td>
+                        <td>豆包讲sort</td>
+                    </tr>
+                    <!-- 可在此处添加内容，示例：
+                    <tr>
+                        <td>1</td>
+                        <td>示例网站</td>
+                        <td><a href="https://example.com" target="_blank">https://example.com</a></td>
+                        <td>学习资料</td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>python百词斩知识网址</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 可在此处添加内容，示例：
+                    <tr>
+                        <td>1</td>
+                        <td>示例网站</td>
+                        <td><a href="https://example.com" target="_blank">https://example.com</a></td>
+                        <td>学习资料</td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>代码实战网站</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 可在此处添加内容，示例：
+                    <tr>
+                        <td>1</td>
+                        <td>示例网站</td>
+                        <td><a href="https://example.com" target="_blank">https://example.com</a></td>
+                        <td>学习资料</td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="resource-container">
+        <!-- 编程学习 -->
+        <div class="resource-card">
+            <div class="resource-category">编程学习</div>
+            <h3 class="resource-title">MDN Web Docs</h3>
+            <p class="resource-description">最权威的Web开发文档，包含HTML、CSS、JavaScript等详细教程和参考资料。</p>
+            <a href="https://developer.mozilla.org/zh-CN/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <div class="resource-card">
+            <div class="resource-category">编程学习</div>
+            <h3 class="resource-title">LeetCode</h3>
+            <p class="resource-description">编程算法练习平台，提供大量算法题目，适合提升编程能力和面试准备。</p>
+            <a href="https://leetcode-cn.com/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <!-- 在线课程 -->
+        <div class="resource-card">
+            <div class="resource-category">在线课程</div>
+            <h3 class="resource-title">Coursera</h3>
+            <p class="resource-description">提供来自世界顶尖大学的在线课程，涵盖多个学科领域，部分课程可获得证书。</p>
+            <a href="https://www.coursera.org/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <div class="resource-card">
+            <div class="resource-category">在线课程</div>
+            <h3 class="resource-title">edX</h3>
+            <p class="resource-description">由哈佛和MIT创立的开源在线课程平台，提供高质量的大学课程。</p>
+            <a href="https://www.edx.org/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <!-- 文档与工具 -->
+        <div class="resource-card">
+            <div class="resource-category">文档与工具</div>
+            <h3 class="resource-title">GitHub</h3>
+            <p class="resource-description">全球最大的代码托管平台，可找到大量开源项目和学习资源。</p>
+            <a href="https://github.com/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <div class="resource-card">
+            <div class="resource-category">文档与工具</div>
+            <h3 class="resource-title">Stack Overflow</h3>
+            <p class="resource-description">程序员问答社区，几乎能找到所有编程问题的解决方案。</p>
+            <a href="https://stackoverflow.com/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+    </div>
+</body>
+</html>
