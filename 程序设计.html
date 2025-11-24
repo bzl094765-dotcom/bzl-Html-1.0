@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程序资源导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: normal;
+        }
+
+        .container {
+            margin-bottom: 3rem;
+        }
+
+        .table-container {
+            width: 100%; /* 增大表格宽度 */
+            margin: 20px auto;
+            max-height: 400px;
+            overflow: auto;
+            border-radius: 10px; /* 与卡片统一圆角 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* 添加卡片阴影效果 */
+            background: white; /* 白色背景 */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0; /* 移除默认margin */
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee; /* 底部边框更柔和 */
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+            position: sticky;
+            top: 0; /* 表头固定 */
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* 调整列宽 */
+        th:nth-child(1), td:nth-child(1) { /* 序号列 */
+            width: 60px; /* 刚好容纳"序号"两个字 */
+            min-width: 60px;
+        }
+
+        th:nth-child(2), td:nth-child(2) { /* 网站名称列 */
+            width: 20%;
+        }
+
+        th:nth-child(3), td:nth-child(3) { /* 网址列 */
+            width: 30%; /* 适当减小宽度 */
+        }
+
+        th:nth-child(4), td:nth-child(4) { /* 备注列 */
+            width: auto; /* 自动占据剩余宽度 */
+        }
+
+        /* 链接样式统一 */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .resource-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .resource-category {
+            color: #3498db;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .resource-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        .resource-description {
+            color: #666;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid #3498db;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: #2980b9;
+            border-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .resource-container {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            /* 响应式调整表格 */
+            .table-container {
+                width: 100%;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>资源导航</h1>
+        <p class="subtitle">···这是一些表格···这是一些表格···</p>
+        <p class="subtitle">清华大学开源镜像站:</p>
+        <a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" class="resource-link">访问网站 →</a>
+        <br>
+        <a href="https://mirrors.tuna.tsinghua.edu.cn/msys2/" target="_blank" class="resource-link">MSYS2镜像站 →</a>
+    </header>
+
+    <div class="container">
+        <h1>c++算法网址</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>c++_1</td>
+                        <td><a href="https://www.hello-algo.com/chapter_introduction/" target="_blank">https://www.hello-algo.com/chapter_introduction/</a></td>
+                        <td>Hello算法（电子版）</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>c++_1.1</td>
+                        <td><a href="https://www.hello-algo.com/" target="_blank">https://www.hello-algo.com/</a></td>
+                        <td>Hello算法</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>DeepLearning——抗体设计与优化</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00_1</td>
+                        <td>跟李沐学AI</td>
+                        <td><a href="https://space.bilibili.com/1567748478/lists/358497?type=series" target="_blank">https://space.bilibili.com/1567748478/lists/358497?type=series</a></td>
+                        <td>DL</td>
+                    </tr>
+                    <tr>
+                        <td>00_2</td>
+                        <td>动手学深度学习————李沐</td>
+                        <td><a href="https://zh.d2l.ai/" target="_blank">https://zh.d2l.ai/</a></td>
+                        <td>动手学深度学习中文版————李沐</td>
+                    </tr>
+                    <tr>
+                        <td>00_3</td>
+                        <td>李宏毅课程</td>
+                        <td><a href="https://www.bilibili.com/video/BV1J94y1f7u5/?vd_source=32b6348ff9951c3803ff5dc0ad230cf6&spm_id_from=333.788.videopod.episodes" target="_blank">https://www.bilibili.com/video/BV1J94y1f7u5/?vd_source=32b6348ff9951c3803ff5dc0ad230cf6&spm_id_from=333.788.videopod.episodes</a></td>
+                        <td>李宏毅课程</td>
+                    </tr>
+                    <tr>
+                        <td>00_4</td>
+                        <td>吴恩达机器学习课程</td>
+                        <td><a href="https://www.bilibili.com/video/BV1Pa411X76s/?spm_id_from=333.337.search-card.all.click&vd_source=32b6348ff9951c3803ff5dc0ad230cf6" target="_blank">https://www.bilibili.com/video/BV1Pa411X76s/?spm_id_from=333.337.search-card.all.click&vd_source=32b6348ff9951c3803ff5dc0ad230cf6</a></td>
+                        <td>吴恩达课程</td>
+                    </tr>
+                    <tr>
+                        <td>00_5</td>
+                        <td>黑马程序员python零基础全套教程，8天python从入门到精通，学python看这套就够了</td>
+                        <td><a href="https://www.bilibili.com/video/BV1qW4y1a7fU/?spm_id_from=333.337.search-card.all.click&vd_source=32b6348ff9951c3803ff5dc0ad230cf6" target="_blank">https://www.bilibili.com/video/BV1qW4y1a7fU/?spm_id_from=333.337.search-card.all.click&vd_source=32b6348ff9951c3803ff5dc0ad230cf6</a></td>
+                        <td>黑马程序员python</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>matplotlib</td>
+                        <td><a href="https://www.runoob.com/matplotlib/matplotlib-tutorial.html" target="_blank">https://www.runoob.com/matplotlib/matplotlib-tutorial.html</a></td>
+                        <td>python_2_3</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>pandas</td>
+                        <td><a href="https://www.runoob.com/pandas/pandas-tutorial.html" target="_blank">https://www.runoob.com/pandas/pandas-tutorial.html</a></td>
+                        <td>python_2_2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>numpy</td>
+                        <td><a href="https://www.runoob.com/numpy/numpy-tutorial.html" target="_blank">https://www.runoob.com/numpy/numpy-tutorial.html</a></td>
+                        <td>python_2_1</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>python3</td>
+                        <td><a href="https://www.runoob.com/python3/python3-tutorial.html" target="_blank">https://www.runoob.com/python3/python3-tutorial.html</a></td>
+                        <td>python_1</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>python_pytorch</td>
+                        <td><a href="https://www.runoob.com/pytorch/pytorch-tutorial.html" target="_blank">https://www.runoob.com/pytorch/pytorch-tutorial.html</a></td>
+                        <td>This is pytorch</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>pandas_practices</td>
+                        <td><a href="https://www.heywhale.com/mw/project/5ddc974ef41512002cec1dca" target="_blank">https://www.heywhale.com/mw/project/5ddc974ef41512002cec1dca</a></td>
+                        <td>50道练习带你玩转Pandas</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>numpy_practices</td>
+                        <td><a href="https://www.heywhale.com/mw/project/59f29f67c5f3f5119527a2cc" target="_blank">https://www.heywhale.com/mw/project/59f29f67c5f3f5119527a2cc</a></td>
+                        <td>这100道练习,带你玩转Numpy</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>matplotlib_practices</td>
+                        <td><a href="https://www.heywhale.com/mw/project/5de9f0a0953ca8002c95d2a9" target="_blank">https://www.heywhale.com/mw/project/5de9f0a0953ca8002c95d2a9</a></td>
+                        <td>50题matplotlib从入门到精通</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>python_tqdm</td>
+                        <td><a href="https://www.bilibili.com/video/BV186421Z7fH/?spm_id_from=333.337.search-card.all.click&vd_source=32b6348ff9951c3803ff5dc0ad230cf6" target="_blank">https://www.bilibili.com/video/BV186421Z7fH/?spm_id_from=333.337.search-card.all.click&vd_source=32b6348ff9951c3803ff5dc0ad230cf6</a></td>
+                        <td>tqdm展示进度条</td>
+                    </tr>
+                    <!-- 可在此处添加内容 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>c++知识网址</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>doubao_sort</td>
+                        <td><a href="https://www.doubao.com/thread/w2f97c03fbe41cd30" target="_blank">https://www.doubao.com/thread/w2f97c03fbe41cd30</a></td>
+                        <td>豆包讲sort</td>
+                    </tr>
+                    <tr>
+                        <td>1.1</td>
+                        <td>sort_stable</td>
+                        <td><a href="https://en.cppreference.com/w/cpp/algorithm/sort.html" target="_blank">https://en.cppreference.com/w/cpp/algorithm/sort.html</a></td>
+                        <td>stable_sort</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>doubao_return</td>
+                        <td><a href="https://www.doubao.com/thread/wd340f997b31db2db" target="_blank">https://www.doubao.com/thread/wd340f997b31db2db</a></td>
+                        <td>豆包解释return 1的含义</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>python百词斩知识网址</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0_main</td>
+                        <td>python_baicizhan</td>
+                        <td><a href="https://np.baicizhan.com/courses" target="_blank">https://np.baicizhan.com/courses</a></td>
+                        <td>百词斩Python课程:<a href="https://bzl094765-dotcom.github.io/bzl-Html-1.0/course.html" target="_blank">课程目录</a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>turtle绘图函数总结</td>
+                        <td><a href="https://bzl094765-dotcom.github.io/bzl-Html-1.0/turtle绘图函数总结.pdf" target="_blank">https://bzl094765-dotcom.github.io/bzl-Html-1.0/turtle绘图函数总结.pdf</a></td>
+                        <td>百词斩Python</td>
+                    </tr>
+                    <!-- 可在此处添加内容 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>程序设计平台——Learning and Practice</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LG.1</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/training/883176#problems" target="_blank">https://www.luogu.com.cn/training/883176#problems</a></td>
+                        <td>结构体练习</td>
+                    </tr>
+                    <tr>
+                        <td>LG.2</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/problem/P1950" target="_blank">https://www.luogu.com.cn/problem/P1950</a></td>
+                        <td>长方形（单题）</td>
+                    </tr>
+                    <tr>
+                        <td>LG.3</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/problem/P3386" target="_blank">https://www.luogu.com.cn/problem/P3386</a></td>
+                        <td>树的直径（单题）</td>
+                    </tr>
+                    <tr>
+                        <td>LG.4</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/problem/P3376" target="_blank">https://www.luogu.com.cn/problem/P3376</a></td>
+                        <td>洛谷P3376（单题）</td>
+                    </tr>
+                    <tr>
+                        <td>LG.5.list</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/problem/list" target="_blank">https://www.luogu.com.cn/problem/list</a></td>
+                        <td>洛谷P(x)_训练</td>
+                    </tr>
+                    <tr>
+                        <td>LG.6</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/contest/282253#problems" target="_blank">https://www.luogu.com.cn/contest/282253#problems</a></td>
+                        <td>NENUACM新生3</td>
+                    </tr>
+                    <tr>
+                        <td>LG.7</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/contest/283752#problems" target="_blank">https://www.luogu.com.cn/contest/283752#problems</a></td>
+                        <td>nenu字符串专项练习</td>
+                    </tr>
+                    <tr>
+                        <td>LG.8</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/training/883176#problems" target="_blank">https://www.luogu.com.cn/training/883176#problems</a></td>
+                        <td>结构体专项练习</td>
+                    </tr>
+                    <tr>
+                        <td>LG.9</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/training/883175#problems" target="_blank">https://www.luogu.com.cn/training/883175#problems</a></td>
+                        <td>递归专项练习</td>
+                    </tr>
+                    <tr>
+                        <td>LG.10</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/training/883174#problems" target="_blank">https://www.luogu.com.cn/training/883174#problems</a></td>
+                        <td>排序专项练习</td>
+                    </tr>
+                    <tr>
+                        <td>LG.11</td>
+                        <td>lg0031</td>
+                        <td><a href="http://luogu.com.cn/contest/288807#problems" target="_blank">http://luogu.com.cn/contest/288807#problems</a></td>
+                        <td>函数专项练习</td>
+                    </tr>
+                    <tr>
+                        <td>LG.12</td>
+                        <td>lg0031</td>
+                        <td><a href="https://www.luogu.com.cn/contest/290367#problems" target="_blank">https://www.luogu.com.cn/contest/290367#problems</a></td>
+                        <td>maxduan的神之一手</td>
+                    </tr>
+                    <tr>
+                        <td>CODEFORCES.1.main</td>
+                        <td>unknown now</td>
+                        <td><a href="https://codeforces.com/group/hszM8sqo7A/contests" target="_blank">https://codeforces.com/group/hszM8sqo7A/contests</a></td>
+                        <td>codeforces_ACM</td>
+                    </tr>
+                    <tr>
+                        <td>CF.2.practice</td>
+                        <td>unknown now</td>
+                        <td><a href="https://codeforces.com/problemset" target="_blank">https://codeforces.com/problemset</a></td>
+                        <td>codeforces_练习题库</td>
+                    </tr>
+                    <tr>
+                        <td>CF.3.educational</td>
+                        <td>unknown now</td>
+                        <td><a href="https://codeforces.com/contests?group=hszM8sqo7A" target="_blank">https://codeforces.com/contests?group=hszM8sqo7A</a></td>
+                        <td>codeforces_educational_contest</td>
+                    </tr>
+                    <tr>
+                        <td>CF.4.practice</td>
+                        <td>unknown now</td>
+                        <td><a href="https://codeforces.com/group/hszM8sqo7A/contest/638802" target="_blank">https://codeforces.com/group/hszM8sqo7A/contest/638802</a></td>
+                        <td>codeforces_group</td>
+                    </tr>
+                    <tr>
+                        <td>CF.5.div2</td>
+                        <td>unknown now</td>
+                        <td><a href="https://codeforces.com/contest/2157" target="_blank">https://codeforces.com/contest/2157</a></td>
+                        <td>codeforces_div2_874</td>
+                    </tr>
+                    <tr>
+                        <td>Nowcoder(NC).0_offer</td>
+                        <td>Lingqi</td>
+                        <td><a href="http://www.silencer76.com/strl/" target="_blank">http://www.silencer76.com/strl/</a></td>
+                        <td>···牛客在手,offer不愁···</td>
+                    </tr>
+                    <tr>
+                        <td>NC.1</td>
+                        <td>Lingqi</td>
+                        <td><a href="https://ac.nowcoder.com/acm/contest/119605" target="_blank">https://ac.nowcoder.com/acm/contest/119605</a></td>
+                        <td>2025年广东工业大学程序设计竞赛月赛（同步赛）</td>
+                    </tr>
+                    <tr>
+                        <td>NC.2</td>
+                        <td>Lingqi</td>
+                        <td><a href="https://ac.nowcoder.com/acm/contest/119604" target="_blank">https://ac.nowcoder.com/acm/contest/119604</a></td>
+                        <td>牛客周赛 Round 113(重现赛) </td>
+                    </tr>
+                    <tr>
+                        <td>NC.3.vip</td>
+                        <td>Lingqi</td>
+                        <td><a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_blank">https://ac.nowcoder.com/acm/contest/vip-index</a></td>
+                        <td>牛客周赛————付费组</td>
+                    </tr>
+                    <tr>
+                        <td>NC.4</td>
+                        <td>Lingqi</td>
+                        <td><a href="https://ac.nowcoder.com/acm/contest/119895" target="_blank">https://ac.nowcoder.com/acm/contest/119895</a></td>
+                        <td>牛客周赛 Round 115</td>
+                    </tr>
+                    <tr>
+                        <td>NC.5</td>
+                        <td>Lingqi</td>
+                        <td><a href="https://ac.nowcoder.com/acm/contest/119666" target="_blank">https://ac.nowcoder.com/acm/contest/119666</a></td>
+                        <td>牛客练习赛145</td>
+                    </tr>
+                    <tr>
+                        <td>头歌</td>
+                        <td>Lingqi</td>
+                        <td><a href="https://www.educoder.net/" target="_blank">https://www.educoder.net/</a></td>
+                        <td>头歌实践教学平台（刘东原）</td>
+                    </tr>
+                    <tr>
+                        <td>HDU.1</td>
+                        <td>HDU</td>
+                        <td><a href="http://acm.hdu.edu.cn/listproblem.php?vol=0" target="_blank">http://acm.hdu.edu.cn/listproblem.php?vol=0</a></td>
+                        <td>HDU题库_杭州电子科技大学</td>
+                    </tr>
+                    <tr>
+                        <td>ABC.1</td>
+                        <td>ABC题库</td>
+                        <td><a href="https://atcoder.jp/contests/abc429/tasks" target="_blank">https://atcoder.jp/contests/abc429/tasks</a></td>
+                        <td>ABCtasks</td>
+                    </tr>
+                    <tr>
+                        <td>ABC.2</td>
+                        <td>ABC题库</td>
+                        <td><a href="https://atcoder.jp/contests/abc426/tasks" target="_blank">https://atcoder.jp/contests/abc426/tasks</a></td>
+                        <td>ABCtasks</td>
+                    </tr>
+                    <tr>
+                        <td>ABC.3</td>
+                        <td>ABC题库</td>
+                        <td><a href="https://atcoder.jp/contests/abc423/tasks" target="_blank">https://atcoder.jp/contests/abc423/tasks</a></td>
+                        <td>ABCtasks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>————计算机————</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NSS.1</td>
+                        <td>网安小组</td>
+                        <td><a href="https://www.nssctf.cn/index" target="_blank">https://www.nssctf.cn/index</a></td>
+                        <td>网络安全竞赛</td>
+                    </tr>
+                    <tr>
+                        <td>NSS.2</td>
+                        <td>wiki</td>
+                        <td><a href="https://csdiy.wiki/en/" target="_blank">https://csdiy.wiki/en/</a></td>
+                        <td>网安学习__wiki</td>
+                    </tr>
+                    <tr>
+                        <td>NSS.3</td>
+                        <td>菜鸟网安</td>
+                        <td><a href="https://www.runoob.com/security/security-tutorial.html" target="_blank">https://www.runoob.com/security/security-tutorial.html</a></td>
+                        <td>网络安全入门教程</td>
+                    </tr>
+                    <tr>
+                        <td>NSS.4</td>
+                        <td>CTF学习</td>
+                        <td><a href="https://ctf101.org/" target="_blank">https://ctf101.org/</a></td>
+                        <td>CTF学习资源</td>
+                    </tr>
+                    <tr>
+                        <td>NSS.5</td>
+                        <td>CTF Wiki</td>
+                        <td><a href="https://ctf-wiki.github.io/ctf-wiki/" target="_blank">https://ctf-wiki.github.io/ctf-wiki/</a></td>
+                        <td>CTF Wiki资源</td>
+                    </tr>
+                    <tr>
+                        <td>NSS.6</td>
+                        <td>oi-wiki</td>
+                        <td><a href="https://oi-wiki.org/" target="_blank">https://oi-wiki.org/</a></td>
+                        <td>oi-wiki</td>
+                    </tr>
+                    <tr>
+                        <td>C.1</td>
+                        <td>C语言入门（书）</td>
+                        <td><a href="https://c.biancheng.net/c/" target="_blank">https://c.biancheng.net/c/</a></td>
+                        <td>C语言</td>
+                    </tr>
+                    <tr>
+                        <td>C.2</td>
+                        <td>C语言教程（菜鸟）</td>
+                        <td><a href="https://www.runoob.com/cprogramming/c-tutorial.html" target="_blank">https://www.runoob.com/cprogramming/c-tutorial.html</a></td>
+                        <td>C语言教程（菜鸟）</td>
+                    </tr>
+                    <tr>
+                        <td>C++_2</td>
+                        <td>cppreference</td>
+                        <td><a href="https://en.cppreference.com/w/" target="_blank">https://en.cppreference.com/w/</a></td>
+                        <td>cppreference</td>
+                    </tr>
+                    <tr>
+                        <td>JDK_17</td>
+                        <td>java11</td>
+                        <td><a href="https://docs.oracle.com/en/java/javase/17/index.html" target="_blank">https://docs.oracle.com/en/java/javase/17/index.html</a></td>
+                        <td>java11</td>
+                    </tr>
+                    <!-- 可在此处添加内容 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>DL————临时的</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>网站名称</th>
+                        <th>网址</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DL.1</td>
+                        <td>DeepLearning</td>
+                        <td><a href="https://www.deeplearningbook.org/" target="_blank">https://www.deeplearningbook.org/</a></td>
+                        <td>深度学习（Ian Goodfellow等著）</td>
+                    </tr>
+                    <tr>
+                        <td>DL.2</td>
+                        <td>神经网络与深度学习</td>
+                        <td><a href="https://docs.qq.com/aio/DTkRBbkJiTnZwYWhG" target="_blank">https://docs.qq.com/aio/DTkRBbkJiTnZwYWhG</a></td>
+                        <td>DL_3.1</td>
+                    </tr>
+                    <tr>
+                        <td>DL.3</td>
+                        <td>深度学习入门：基于Python的理论与实现</td>
+                        <td><a href="https://www.oreilly.com/library/view/deep-learning-with/9787115489600/" target="_blank">https://www.oreilly.com/library/view/deep-learning-with/9787115489600/</a></td>
+                        <td>DL_3.2</td>
+                    </tr>
+                    <!-- 可在此处添加内容 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="resource-container">
+        <!-- 编程学习 -->
+        <div class="resource-card">
+            <div class="resource-category">编程学习</div>
+            <h3 class="resource-title">MDN Web Docs</h3>
+            <p class="resource-description">最权威的Web开发文档，包含HTML、CSS、JavaScript等详细教程和参考资料。</p>
+            <a href="https://developer.mozilla.org/zh-CN/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <div class="resource-card">
+            <div class="resource-category">编程学习</div>
+            <h3 class="resource-title">LeetCode</h3>
+            <p class="resource-description">编程算法练习平台，提供大量算法题目，适合提升编程能力和面试准备。</p>
+            <a href="https://leetcode-cn.com/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <!-- 在线课程 -->
+        <div class="resource-card">
+            <div class="resource-category">在线课程</div>
+            <h3 class="resource-title">Coursera</h3>
+            <p class="resource-description">提供来自世界顶尖大学的在线课程，涵盖多个学科领域，部分课程可获得证书。</p>
+            <a href="https://www.coursera.org/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <div class="resource-card">
+            <div class="resource-category">在线课程</div>
+            <h3 class="resource-title">edX</h3>
+            <p class="resource-description">由哈佛和MIT创立的开源在线课程平台，提供高质量的大学课程。</p>
+            <a href="https://www.edx.org/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <!-- 文档与工具 -->
+        <div class="resource-card">
+            <div class="resource-category">文档与工具</div>
+            <h3 class="resource-title">GitHub</h3>
+            <p class="resource-description">全球最大的代码托管平台，可找到大量开源项目和学习资源。</p>
+            <a href="https://github.com/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+
+        <div class="resource-card">
+            <div class="resource-category">文档与工具</div>
+            <h3 class="resource-title">Stack Overflow</h3>
+            <p class="resource-description">程序员问答社区，几乎能找到所有编程问题的解决方案。</p>
+            <a href="https://stackoverflow.com/" target="_blank" class="resource-link">访问网站 →</a>
+        </div>
+    </div>
+</body>
+</html>
